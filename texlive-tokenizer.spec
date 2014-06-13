@@ -6,7 +6,7 @@
 # catalog-version 1.1.0
 Name:		texlive-tokenizer
 Version:	1.1.0
-Release:	6
+Release:	7
 Summary:	A tokenizer
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/tokenizer
