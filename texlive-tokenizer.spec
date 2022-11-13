@@ -1,18 +1,12 @@
-# revision 15878
-# category Package
-# catalog-ctan /macros/latex/contrib/tokenizer
-# catalog-date 2006-12-23 09:07:09 +0100
-# catalog-license lppl
-# catalog-version 1.1.0
 Name:		texlive-tokenizer
-Version:	1.1.0
-Release:	12
+Version:	15878
+Release:	1
 Summary:	A tokenizer
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/tokenizer
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/tokenizer.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/tokenizer.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/tokenizer.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/tokenizer.doc.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -29,12 +23,12 @@ command is defined, which removes leading and trailing spaces
 from its argument.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -44,23 +38,10 @@ from its argument.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Thu Jan 05 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.1.0-2
-+ Revision: 757032
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.1.0-1
-+ Revision: 719777
-- texlive-tokenizer
-- texlive-tokenizer
-- texlive-tokenizer
-
